@@ -14,7 +14,6 @@ function showSection(id) {
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
   closeMobileNav();
-  closeDropdowns();
   history.pushState(null, '', '#' + id);
 }
 
@@ -22,49 +21,10 @@ document.querySelectorAll('.nav-link[data-section]').forEach(link => {
   link.addEventListener('click', e => { e.preventDefault(); showSection(link.dataset.section); });
 });
 
-/* ═══ DROPDOWN – solo JS, niente CSS :hover ══════════════════ */
-function closeDropdowns(except) {
-  // Ottimizzo cercando solo i dropdown attualmente aperti
-  document.querySelectorAll('.has-dropdown.open').forEach(d => {
-    if (d !== except) d.classList.remove('open');
-  });
-}
-
-document.querySelectorAll('.has-dropdown > .nav-link').forEach(trigger => {
-  trigger.addEventListener('click', e => {
-    e.preventDefault();
-    // Rimosso e.stopPropagation() per evitare blocchi anomali
-    
-    const parent = trigger.closest('.has-dropdown');
-    const isOpen = parent.classList.contains('open');
-
-    // Logica di toggle semplificata e diretta
-    if (isOpen) {
-      parent.classList.remove('open');
-    } else {
-      closeDropdowns(); // Chiude eventuali altre tendine aperte
-      parent.classList.add('open');
-    }
-  });
-});
-
-// Chiudi dropdown quando clicchi su un link del dropdown
-document.querySelectorAll('.dropdown .nav-link').forEach(link => {
-  link.addEventListener('click', () => closeDropdowns());
-});
-
-// Chiudi dropdown quando clicchi/tocchi fuori dal menu
-// Aggiunto 'touchstart' per far funzionare la chiusura cliccando fuori anche su iPhone/iPad
-['click', 'touchstart'].forEach(evento => {
-  document.addEventListener(evento, e => {
-    if (!e.target.closest('.has-dropdown')) {
-      closeDropdowns();
-    }
-  }, { passive: true });
-});
+/* ═══ DROPDOWN – rimosso ══════════════════════════════════════ */
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeDropdowns(); closeMobileNav(); }
+  if (e.key === 'Escape') { closeMobileNav(); }
 });
 
 /* ═══ MENU MOBILE ════════════════════════════════════════════ */
