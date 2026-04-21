@@ -40,16 +40,15 @@ document.querySelectorAll('.has-dropdown > .nav-link').forEach(trigger => {
   });
 });
 
+
+// Chiudi dropdown quando clicchi su un link del dropdown
+document.querySelectorAll('.dropdown .nav-link').forEach(link => {
+  link.addEventListener('click', () => closeDropdowns());
+});
+
+// Chiudi dropdown quando clicchi fuori dal menu
 document.addEventListener('click', e => {
-  // Chiudi dropdown se clicchi FUORI da .has-dropdown, OPPURE se clicchi su un link dentro il dropdown
-  const inDropdown = e.target.closest('.dropdown');
-  const inDropdownTrigger = e.target.closest('.has-dropdown > .nav-link');
-  
-  if (!e.target.closest('.has-dropdown')) {
-    closeDropdowns();
-  } else if (inDropdown && !inDropdownTrigger) {
-    closeDropdowns();
-  }
+  if (!e.target.closest('.has-dropdown')) closeDropdowns();
 });
 
 document.addEventListener('keydown', e => {
