@@ -24,7 +24,8 @@ document.querySelectorAll('.nav-link[data-section]').forEach(link => {
 
 /* ═══ DROPDOWN – solo JS, niente CSS :hover ══════════════════ */
 function closeDropdowns(except) {
-  document.querySelectorAll('.has-dropdown').forEach(d => {
+  // Ottimizzo cercando solo i dropdown attualmente aperti
+  document.querySelectorAll('.has-dropdown.open').forEach(d => {
     if (d !== except) d.classList.remove('open');
   });
 }
@@ -32,23 +33,34 @@ function closeDropdowns(except) {
 document.querySelectorAll('.has-dropdown > .nav-link').forEach(trigger => {
   trigger.addEventListener('click', e => {
     e.preventDefault();
-    e.stopPropagation();
+    // Rimosso e.stopPropagation() per evitare blocchi anomali
+    
     const parent = trigger.closest('.has-dropdown');
-    const wasOpen = parent.classList.contains('open');
-    closeDropdowns();
-    if (!wasOpen) parent.classList.add('open');
+    const isOpen = parent.classList.contains('open');
+
+    // Logica di toggle semplificata e diretta
+    if (isOpen) {
+      parent.classList.remove('open');
+    } else {
+      closeDropdowns(); // Chiude eventuali altre tendine aperte
+      parent.classList.add('open');
+    }
   });
 });
-
 
 // Chiudi dropdown quando clicchi su un link del dropdown
 document.querySelectorAll('.dropdown .nav-link').forEach(link => {
   link.addEventListener('click', () => closeDropdowns());
 });
 
-// Chiudi dropdown quando clicchi fuori dal menu
-document.addEventListener('click', e => {
-  if (!e.target.closest('.has-dropdown')) closeDropdowns();
+// Chiudi dropdown quando clicchi/tocchi fuori dal menu
+// Aggiunto 'touchstart' per far funzionare la chiusura cliccando fuori anche su iPhone/iPad
+['click', 'touchstart'].forEach(evento => {
+  document.addEventListener(evento, e => {
+    if (!e.target.closest('.has-dropdown')) {
+      closeDropdowns();
+    }
+  }, { passive: true });
 });
 
 document.addEventListener('keydown', e => {
