@@ -40,6 +40,11 @@ document.querySelectorAll('.has-dropdown > .nav-link').forEach(trigger => {
   });
 });
 
+// Chiudi dropdown quando clicchi su un link dentro il dropdown
+document.querySelectorAll('.dropdown .nav-link[data-section]').forEach(link => {
+  link.addEventListener('click', closeDropdowns);
+});
+
 document.addEventListener('click', e => {
   if (!e.target.closest('.has-dropdown')) closeDropdowns();
 });
