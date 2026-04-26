@@ -986,7 +986,85 @@ em { color: var(--blue-light); font-style: normal; }
   }
 }
 
-/* ── SCROLLBAR ──────────────────────────────────────────────── */
+/* ── PARTNER BADGE ────────────────────────────────────────── */
+.partner-badge {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--gray-100);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  width: fit-content;
+}
+
+.partner-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-500);
+  white-space: nowrap;
+}
+
+.partner-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── CONTACT INFO BOX ─────────────────────────────────────── */
+.contact-info-box {
+  background: linear-gradient(135deg, rgba(26,58,107,.05), rgba(255,209,0,.08));
+  border: 2px solid var(--yellow);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin-top: 2rem;
+}
+
+.cib-title {
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 0.85rem;
+  font-size: 1rem;
+}
+
+.cib-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cib-list li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.cib-key {
+  font-weight: 700;
+  color: var(--blue);
+  min-width: 52px;
+}
+
+.cib-sep { color: var(--gray-500); }
+
+.cib-list a {
+  color: var(--blue-light);
+  text-decoration: underline;
+  text-decoration-color: rgba(34,85,164,.3);
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.cib-list a:hover { color: var(--blue); text-decoration-color: var(--yellow); }
+
+/* ── SPACING FIX ──────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--gray-100); }
 ::-webkit-scrollbar-thumb { background: var(--blue-light); border-radius: 3px; }

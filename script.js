@@ -31,6 +31,13 @@ document.addEventListener('keydown', e => {
 const navToggle = document.getElementById('navToggle');
 const mainNav   = document.getElementById('mainNav');
 
+// Inizializza il menu come chiuso al caricamento
+function closeMobileNav() {
+  mainNav.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.classList.remove('is-open');
+}
+
 navToggle.addEventListener('click', e => {
   e.stopPropagation();
   const isOpen = mainNav.classList.toggle('open');
@@ -39,11 +46,10 @@ navToggle.addEventListener('click', e => {
   if (!isOpen) closeDropdowns();
 });
 
-function closeMobileNav() {
-  mainNav.classList.remove('open');
-  navToggle.setAttribute('aria-expanded', 'false');
-  navToggle.classList.remove('is-open');
-}
+// Chiudi il menu quando il DOM è pronto
+document.addEventListener('DOMContentLoaded', () => {
+  closeMobileNav();
+});
 
 document.addEventListener('click', e => {
   if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) closeMobileNav();

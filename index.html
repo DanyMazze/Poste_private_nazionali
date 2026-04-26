@@ -30,6 +30,19 @@
       <nav class="main-nav" id="mainNav">
         <ul>
           <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+          <li class="has-dropdown">
+            <a href="#" class="nav-link">Servizi ▾</a>
+            <ul class="dropdown">
+              <li><a href="#spedizione" class="nav-link" data-section="spedizione">Spedizione Pacchi</a></li>
+              <li><a href="#visure" class="nav-link" data-section="visure">Visure Camerali</a></li>
+              <li><a href="#biglietti-spett" class="nav-link" data-section="biglietti-spett">Biglietti Spettacoli</a></li>
+              <li><a href="#cartoleria" class="nav-link" data-section="cartoleria">Piccola Cartoleria</a></li>
+              <li><a href="#treno-bus" class="nav-link" data-section="treno-bus">Biglietti Treno & Bus</a></li>
+              <li><a href="#carta-identita" class="nav-link" data-section="carta-identita">Prenotazione C.I.</a></li>
+              <li><a href="#servizi-postali" class="nav-link" data-section="servizi-postali">Servizi Postali</a></li>
+              <li><a href="#altri-servizi" class="nav-link" data-section="altri-servizi">Altri Servizi</a></li>
+            </ul>
+          </li>
           <li><a href="#contatti" class="nav-link" data-section="contatti">Contatti</a></li>
           <li class="has-dropdown">
             <a href="#" class="nav-link nav-ext">Poste Private Naz. ▾</a>
@@ -273,8 +286,16 @@
       <div class="container section-block">
         <div class="content-cols">
           <div class="content-main">
+
+            <!-- Partner badge -->
+            <div class="partner-badge">
+              <span class="partner-label">Punto vendita autorizzato</span>
+              <img src="etick-logo.png" alt="eTick – LiveTicket" class="partner-logo" />
+            </div>
+
             <h2>Acquista i tuoi biglietti</h2>
-            <p>Non devi più fare code o navigare siti complicati. Vieni da noi e in pochi minuti hai il biglietto per il tuo evento preferito, stampato o digitale.</p>
+            <p>Siamo punto vendita autorizzato <strong>eTick / LiveTicket</strong>. Non devi più fare code o navigare siti complicati: vieni da noi e in pochi minuti hai il biglietto per il tuo evento preferito, stampato o digitale.</p>
+
             <div class="tag-grid">
               <span class="tag">🎵 Concerti</span>
               <span class="tag">🎭 Teatro</span>
@@ -285,15 +306,36 @@
               <span class="tag">🎡 Parchi tematici</span>
               <span class="tag">🎤 Stand-up</span>
             </div>
-            <div class="highlight-box">
-              <strong>💡 Consiglio:</strong> Disponibilità e prezzi dipendono dagli eventi. Contattaci prima di venire per verificare la disponibilità del biglietto che cerchi.
+
+            <!-- Contact info block -->
+            <div class="contact-info-box">
+              <p class="cib-title">📞 Per informazioni contattare il punto vendita:</p>
+              <ul class="cib-list">
+                <li>
+                  <span class="cib-key">Tel.</span>
+                  <a href="tel:0115694940">011 5694940</a>
+                  <span class="cib-sep">·</span>
+                  <a href="tel:3495485647">349 5485647</a>
+                </li>
+                <li>
+                  <span class="cib-key">Email.</span>
+                  <a href="mailto:cibrario63@gmail.com">cibrario63@gmail.com</a>
+                </li>
+                <li>
+                  <span class="cib-key">WhatsApp.</span>
+                  <a href="https://api.whatsapp.com/send?phone=393495485647&text=Ciao%2C%20cerco%20biglietti%20per..." target="_blank" rel="noopener">Scrivi su WhatsApp ↗</a>
+                </li>
+              </ul>
             </div>
+
           </div>
           <div class="content-side">
             <div class="side-card">
               <h3>Cerca il tuo evento</h3>
               <p>Scrivici il nome dell'evento e la data: troviamo noi i biglietti per te.</p>
               <a href="https://api.whatsapp.com/send?phone=393495485647&text=Ciao%2C%20cerco%20biglietti%20per..." target="_blank" rel="noopener" class="btn btn-wa">Scrivi su WhatsApp</a>
+              <a href="tel:0115694940" class="btn btn-outline" style="margin-top:0.75rem;">Chiama</a>
+              <a href="mailto:cibrario63@gmail.com" class="btn btn-outline" style="margin-top:0.5rem;">Invia email</a>
             </div>
           </div>
         </div>
