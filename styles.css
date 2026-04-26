@@ -659,12 +659,23 @@ em { color: var(--blue-light); font-style: normal; }
   font-weight: 700;
 }
 
-/* ════════════════════════════════════════════════════════════
-   CONTACTS PAGE
-   ════════════════════════════════════════════════════════════ */
+/* Dropdown esterno (Poste Private Naz.) – bordo giallo per distinguerlo */
+.dropdown--ext {
+  border-top: 3px solid var(--yellow);
+  min-width: 240px;
+}
+
+.dropdown--ext .nav-link {
+  font-size: 0.83rem;
+  gap: 0.4rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Contacts grid – fino a 3 colonne su desktop */
 .contacts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
